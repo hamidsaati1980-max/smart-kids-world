@@ -11,7 +11,14 @@
   "lang": "en",
   "dir": "ltr",
   "icons": [
-    {
+  {
+    "src": "IMG-20260906-WA0011.jpg",
+    "sizes": "512x512",
+    "type": "image/jpeg",
+    "purpose": "any"
+  }
+  ]
+    
       "src": "file_00000000bab88210bda286f991acf7b5.png",
       "sizes": "512x512",
       "type": "image/png",
