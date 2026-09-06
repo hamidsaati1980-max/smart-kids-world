@@ -1,0 +1,13 @@
+{
+  "name": "Smart Kids World",
+  "short_name": "Smart Kids",
+  "id": "/smart-kids-world/",
+  "start_url": "/smart-kids-world/",
+  "scope": "/smart-kids-world/",
+  "display": "standalone",
+  "description": "Smart Kids World is a fun educational game for children to learn math, letters, colors and animals through play.",
+  "background_color": "#FFFFFF",
+  "theme_color": "#74EBD5",
+  "lang": "en",
+  "dir": "ltr"
+}
