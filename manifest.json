@@ -9,5 +9,13 @@
   "background_color": "#FFFFFF",
   "theme_color": "#74EBD5",
   "lang": "en",
-  "dir": "ltr"
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "file_00000000bab88210bda286f991acf7b5.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
