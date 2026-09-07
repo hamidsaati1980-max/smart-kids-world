@@ -1,217 +1,369 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="manifest.json">
-<title>Smart Kids World – عالم الأطفال الذكي</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#6c5ce7">
+<meta name="description" content="Smart Kids World - عالم الأطفال الذكي">
+<link rel="manifest" href="manifest.json">
+
+<title>🌈 Smart Kids World</title>
 
 <style>
-*{box-sizing:border-box}
-<script>
-  if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('pwabuilder-sw.js');
-  }
-</script>
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
 body{
-margin:0;
-font-family:Arial,sans-serif;
-min-height:100vh;
-background:linear-gradient(135deg,#74ebd5,#9face6);
-text-align:center;
-color:#333;
-}
-
-.app{
-max-width:620px;
-margin:auto;
-padding:12px;
-}
-
-header{
-background:white;
-border-radius:22px;
-padding:10px 14px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-box-shadow:0 5px 15px #0002;
-}
-
-header h1{
-margin:0;
-font-size:20px;
-}
-
-.icon{
-width:auto!important;
-margin:0!important;
-padding:10px!important;
-}
-
-.stars{
-font-size:19px;
-font-weight:bold;
-}
-
-.screen{
-margin-top:14px;
-background:#ffffffd9;
-border-radius:28px;
-padding:18px;
-}
-
-.hidden{display:none!important}
-
-.hero{
-background:linear-gradient(135deg,#fff,#e8f8ff);
-border-radius:24px;
-padding:18px;
-margin-bottom:15px;
-}
-
-.rainbow{font-size:55px}
-.brain{font-size:50px}
-
-h2{margin:8px 0}
-p{margin:8px}
-
-.levelbox{
-background:white;
-border-radius:18px;
-padding:12px;
-margin-bottom:12px;
-}
-
-.bar{
-height:13px;
-background:#eee;
-border-radius:20px;
-overflow:hidden;
-margin-top:8px;
-}
-
-#progress{
-display:block;
-width:0%;
-height:100%;
-background:linear-gradient(90deg,#ffca28,#ff7043);
-transition:.3s;
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#eef2ff,#fff7ed);
+  color:#222;
+  min-height:100vh;
 }
 
 button{
-border:0;
-border-radius:20px;
-padding:15px;
-margin:6px 0;
-width:100%;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
-box-shadow:0 4px 9px #0002;
-background:white;
+  font-family:inherit;
+  cursor:pointer;
 }
 
-.game{
-font-size:21px;
-padding:20px;
+.app{
+  width:100%;
+  max-width:900px;
+  margin:auto;
+  padding:12px;
 }
 
-.math{background:#fff1a8}
-.letters{background:#c9f7d5}
-.colors{background:#ffd0e5}
-.animals{background:#cde7ff}
-
-.small{
-width:48%;
-display:inline-block;
-font-size:16px;
-background:#fff;
+header{
+  background:linear-gradient(135deg,#6c5ce7,#0984e3);
+  color:white;
+  border-radius:24px;
+  padding:18px;
+  box-shadow:0 8px 25px rgba(0,0,0,.15);
+  margin-bottom:15px;
 }
 
-.reset{
-font-size:14px;
-background:#eee;
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  text-align:center;
+  margin-bottom:15px;
 }
 
-.back{background:#fff}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+
+.stat{
+  background:rgba(255,255,255,.18);
+  border-radius:15px;
+  padding:10px 5px;
+  text-align:center;
+}
+
+.stat b{
+  display:block;
+  font-size:20px;
+}
+
+.stat span{
+  font-size:12px;
+}
+
+.progress-wrap{
+  margin-top:12px;
+  background:rgba(255,255,255,.2);
+  border-radius:20px;
+  overflow:hidden;
+  height:12px;
+}
+
+.progress{
+  height:100%;
+  width:0%;
+  background:white;
+  transition:.4s;
+}
+
+.screen{
+  display:none;
+}
+
+.screen.active{
+  display:block;
+}
+
+.card{
+  background:white;
+  border-radius:25px;
+  padding:20px;
+  margin-bottom:15px;
+  box-shadow:0 7px 25px rgba(0,0,0,.08);
+}
+
+.welcome{
+  text-align:center;
+  padding:25px 15px;
+}
+
+.welcome .emoji{
+  font-size:70px;
+}
+
+.welcome h1{
+  color:#6c5ce7;
+}
+
+.menu{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.menu button{
+  border:0;
+  border-radius:22px;
+  padding:22px 10px;
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+  box-shadow:0 5px 15px rgba(0,0,0,.12);
+  transition:.15s;
+}
+
+.menu button:active{
+  transform:scale(.96);
+}
+
+.math{background:#ff7675}
+.words{background:#00b894}
+.colors{background:#fdcb6e;color:#333!important}
+.animals{background:#0984e3}
+.achievements{background:#a55eea}
+.settings{background:#636e72}
 
 .question{
-background:white;
-border-radius:25px;
-padding:30px 15px;
-margin:15px 0;
-min-height:110px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:36px;
-font-weight:bold;
+  text-align:center;
+  font-size:30px;
+  font-weight:bold;
+  margin:20px 0;
 }
 
-.answers{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
+.question.small{
+  font-size:23px;
 }
 
-.answers button{
-min-height:65px;
-margin:0;
+.question-icon{
+  font-size:75px;
+  text-align:center;
+  margin:10px;
+}
+
+.options{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.option{
+  border:3px solid #e5e7eb;
+  background:#fff;
+  border-radius:20px;
+  padding:18px 10px;
+  font-size:24px;
+  font-weight:bold;
+  min-height:70px;
+  transition:.15s;
+}
+
+.option:active{
+  transform:scale(.96);
+}
+
+.option.correct{
+  background:#55efc4;
+  border-color:#00b894;
+}
+
+.option.wrong{
+  background:#ff7675;
+  border-color:#d63031;
+  color:white;
+}
+
+.feedback{
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+  min-height:35px;
+  margin:15px 0;
+}
+
+.controls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+  margin-top:15px;
+}
+
+.control-btn{
+  border:0;
+  border-radius:15px;
+  padding:12px 18px;
+  background:#6c5ce7;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.back{
+  background:#636e72;
 }
 
 .next{
-background:#fff;
-margin-top:14px;
+  background:#00b894;
 }
 
-#message{
-min-height:35px;
-padding:8px;
-font-size:21px;
-font-weight:bold;
+.reset{
+  background:#d63031;
 }
 
-.correct{background:#9cffb0!important}
-.wrong{background:#ffaaaa!important}
-
-.modal{
-position:fixed;
-inset:0;
-background:#0008;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:20px;
-z-index:20;
+.language-buttons{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
 }
 
-.modalCard{
-width:100%;
-max-width:430px;
-max-height:90vh;
-overflow:auto;
-background:white;
-border-radius:28px;
-padding:20px;
+.language-buttons button{
+  border:2px solid #ddd;
+  background:white;
+  border-radius:15px;
+  padding:12px 5px;
+  font-weight:bold;
 }
 
-.modalCard button{
-background:#f3f3f3;
+.language-buttons button.selected{
+  background:#6c5ce7;
+  color:white;
+  border-color:#6c5ce7;
 }
 
 .achievement{
-background:#f5f7ff;
-border-radius:16px;
-padding:13px;
-margin:8px 0;
-text-align:left;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:15px;
+  border-radius:18px;
+  background:#f8f9fa;
+  margin-bottom:10px;
 }
 
-@media(max-width:400px){
-header h1{font-size:16px}
-.game{font-size:18px}
-.question{font-size:30px}
+.achievement.locked{
+  opacity:.45;
+}
+
+.achievement-icon{
+  font-size:40px;
+}
+
+.achievement h3{
+  margin:0 0 5px;
+}
+
+.achievement p{
+  margin:0;
+  color:#666;
+}
+
+.level-badge{
+  display:inline-block;
+  background:#ffeaa7;
+  color:#6c5ce7;
+  border-radius:20px;
+  padding:7px 15px;
+  font-weight:bold;
+}
+
+.mode{
+  text-align:center;
+  color:#777;
+  font-size:14px;
+}
+
+.toast{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%) translateY(100px);
+  background:#222;
+  color:white;
+  padding:14px 22px;
+  border-radius:20px;
+  z-index:9999;
+  transition:.3s;
+  opacity:0;
+}
+
+.toast.show{
+  transform:translateX(-50%) translateY(0);
+  opacity:1;
+}
+
+.confetti{
+  position:fixed;
+  top:-20px;
+  font-size:25px;
+  z-index:9998;
+  animation:fall 2s linear forwards;
+  pointer-events:none;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(720deg);
+    opacity:0;
+  }
+}
+
+.color-box{
+  width:120px;
+  height:120px;
+  margin:20px auto;
+  border-radius:25px;
+  box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.shape-box{
+  width:130px;
+  height:130px;
+  margin:20px auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:100px;
+}
+
+@media(max-width:500px){
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .menu{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .question{
+    font-size:25px;
+  }
+
+  .option{
+    font-size:20px;
+    padding:15px 8px;
+  }
 }
 </style>
 </head>
@@ -221,628 +373,1609 @@ header h1{font-size:16px}
 <div class="app">
 
 <header>
-<button class="icon" onclick="openLang()">🌐</button>
-<h1>🌈 Smart Kids World</h1>
-<div class="stars">⭐ <span id="stars">0</span></div>
+  <div class="logo">🌈 Smart Kids World</div>
+
+  <div class="stats">
+    <div class="stat">
+      ⭐ <b id="stars">0</b>
+      <span id="starsLabel">Stars</span>
+    </div>
+
+    <div class="stat">
+      ⚡ <b id="xp">0</b>
+      <span>XP</span>
+    </div>
+
+    <div class="stat">
+      🔥 <b id="streak">0</b>
+      <span id="streakLabel">Streak</span>
+    </div>
+
+    <div class="stat">
+      🏆 <b id="level">1</b>
+      <span id="levelLabel">Level</span>
+    </div>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress" id="progress"></div>
+  </div>
 </header>
 
-<section id="home" class="screen">
+<!-- HOME -->
+<section id="home" class="screen active">
 
-<div class="hero">
-<div class="rainbow">🌈</div>
-<div class="brain">🧠</div>
-<h2 id="welcome">عالم الأطفال الذكي</h2>
-<p id="learn">تعلم والعب واربح النجوم!</p>
-</div>
+  <div class="card welcome">
+    <div class="emoji">🌈🧒🎓</div>
+    <h1 id="welcomeTitle">مرحباً بك في عالم الأطفال الذكي!</h1>
+    <p id="welcomeText">
+      تعلّم والعب واكسب النجوم واصعد في المستويات!
+    </p>
 
-<div class="levelbox">
-<div><b id="levelText">المستوى</b> <span id="level">1</span></div>
-<div class="bar"><span id="progress"></span></div>
-</div>
+    <div class="level-badge">
+      <span id="homeLevelText">المستوى</span>
+      <span id="homeLevel">1</span>
+    </div>
+  </div>
 
-<button class="game math" onclick="start('math')">🔢 <span id="mathBtn">الرياضيات</span></button>
+  <div class="menu">
 
-<button class="game letters" onclick="start('letters')">🔤 <span id="lettersBtn">الحروف والكلمات</span></button>
+    <button class="math" onclick="startGame('math')">
+      ➕<br>
+      <span id="mathMenu">الرياضيات</span>
+    </button>
 
-<button class="game colors" onclick="start('colors')">🎨 <span id="colorsBtn">الألوان والأشكال</span></button>
+    <button class="words" onclick="startGame('words')">
+      🔤<br>
+      <span id="wordsMenu">الحروف والكلمات</span>
+    </button>
 
-<button class="game animals" onclick="start('animals')">🐶 <span id="animalsBtn">الحيوانات</span></button>
+    <button class="colors" onclick="startGame('colors')">
+      🎨<br>
+      <span id="colorsMenu">الألوان والأشكال</span>
+    </button>
 
-<button class="small" onclick="achievements()">🏆 <span id="achBtn">الإنجازات</span></button>
+    <button class="animals" onclick="startGame('animals')">
+      🐶<br>
+      <span id="animalsMenu">الحيوانات</span>
+    </button>
 
-<button class="small" onclick="toggleSound()">🔊 <span id="soundBtn">الصوت: تشغيل</span></button>
+    <button class="achievements" onclick="showAchievements()">
+      🏆<br>
+      <span id="achievementsMenu">الإنجازات</span>
+    </button>
 
-<button class="reset" onclick="resetGame()">🔄 <span id="resetBtn">إعادة التقدم</span></button>
+    <button class="settings" onclick="showSettings()">
+      ⚙️<br>
+      <span id="settingsMenu">الإعدادات</span>
+    </button>
+
+  </div>
+</section>
+
+<!-- GAME -->
+<section id="game" class="screen">
+
+  <div class="card">
+
+    <div class="mode" id="gameMode"></div>
+
+    <div class="question" id="question">
+      ...
+    </div>
+
+    <div id="questionVisual"></div>
+
+    <div class="options" id="options"></div>
+
+    <div class="feedback" id="feedback"></div>
+
+    <div class="controls">
+      <button class="control-btn next" id="nextBtn" onclick="nextQuestion()" style="display:none">
+        ➡️ التالي
+      </button>
+
+      <button class="control-btn back" onclick="goHome()">
+        🏠 الرئيسية
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievementScreen" class="screen">
+
+  <div class="card">
+    <h2 style="text-align:center">🏆 <span id="achievementTitle">الإنجازات</span></h2>
+    <div id="achievementList"></div>
+
+    <div class="controls">
+      <button class="control-btn back" onclick="goHome()">🏠 الرئيسية</button>
+    </div>
+  </div>
 
 </section>
 
-<section id="play" class="screen hidden">
+<!-- SETTINGS -->
+<section id="settingsScreen" class="screen">
 
-<button class="back" onclick="home()">🏠 <span id="homeBtn">الرئيسية</span></button>
+  <div class="card">
 
-<h2 id="gameTitle"></h2>
+    <h2 style="text-align:center">⚙️ <span id="settingsTitle">الإعدادات</span></h2>
 
-<div class="question" id="question"></div>
+    <h3 id="languageTitle">🌍 اللغة</h3>
 
-<div id="answers" class="answers"></div>
+    <div class="language-buttons">
 
-<div id="message"></div>
+      <button onclick="setLanguage('ar')" id="lang-ar">العربية</button>
+      <button onclick="setLanguage('en')" id="lang-en">English</button>
+      <button onclick="setLanguage('tr')" id="lang-tr">Türkçe</button>
+      <button onclick="setLanguage('fr')" id="lang-fr">Français</button>
+      <button onclick="setLanguage('es')" id="lang-es">Español</button>
+      <button onclick="setLanguage('de')" id="lang-de">Deutsch</button>
 
-<button class="next" onclick="nextQuestion()">➡️ <span id="nextBtn">السؤال التالي</span></button>
+    </div>
 
+    <h3 id="soundTitle">🔊 الصوت</h3>
+
+    <div class="controls">
+      <button class="control-btn" onclick="toggleSound()" id="soundBtn">
+        🔊 ON
+      </button>
+    </div>
+
+    <hr>
+
+    <div class="controls">
+      <button class="control-btn reset" onclick="resetProgress()">
+        🗑️ <span id="resetText">إعادة التقدم</span>
+      </button>
+
+      <button class="control-btn back" onclick="goHome()">
+        🏠 <span id="homeText">الرئيسية</span>
+      </button>
+    </div>
+
+  </div>
 </section>
 
-<div id="langBox" class="modal hidden">
-
-<div class="modalCard">
-
-<h2>🌐 Language</h2>
-
-<button onclick="setLang('ar')">🇸🇦 العربية</button>
-<button onclick="setLang('en')">🇬🇧 English</button>
-<button onclick="setLang('tr')">🇹🇷 Türkçe</button>
-<button onclick="setLang('fr')">🇫🇷 Français</button>
-<button onclick="setLang('es')">🇪🇸 Español</button>
-<button onclick="setLang('de')">🇩🇪 Deutsch</button>
-
-<button onclick="closeLang()">❌</button>
-
-</div>
 </div>
 
-<div id="achBox" class="modal hidden">
-
-<div class="modalCard">
-
-<h2 id="achTitle">🏆 الإنجازات</h2>
-
-<div id="achievementsList"></div>
-
-<button onclick="closeAch()">❌</button>
-
-</div>
-</div>
-
-</div>
+<div class="toast" id="toast"></div>
 
 <script>
 
-let lang=localStorage.lang||"ar";
-let stars=Number(localStorage.stars||0);
-let sound=localStorage.sound!=="off";
-let type="math";
-let correct="";
-let answered=false;
+/* =====================================================
+   SMART KIDS WORLD
+   MAIN GAME ENGINE
+===================================================== */
 
-const tr={
+/* ---------- TRANSLATIONS ---------- */
+
+const T = {
 
 ar:{
-welcome:"عالم الأطفال الذكي",
-learn:"تعلم والعب واربح النجوم!",
-math:"الرياضيات",
-letters:"الحروف والكلمات",
-colors:"الألوان والأشكال",
-animals:"الحيوانات",
-level:"المستوى",
-ach:"الإنجازات",
-soundOn:"الصوت: تشغيل",
-soundOff:"الصوت: إيقاف",
-reset:"إعادة التقدم",
-home:"الرئيسية",
-next:"السؤال التالي",
-great:"🎉 أحسنت!",
-try:"😊 حاول مرة أخرى!",
-achTitle:"🏆 الإنجازات",
-first:"🌟 أول نجمة",
-five:"⭐ خمس نجوم",
-ten:"🏆 عشر نجوم",
-twenty:"👑 عشرون نجمة"
+  welcomeTitle:"مرحباً بك في عالم الأطفال الذكي!",
+  welcomeText:"تعلّم والعب واكسب النجوم واصعد في المستويات!",
+  level:"المستوى",
+  stars:"نجوم",
+  streak:"سلسلة",
+  math:"الرياضيات",
+  words:"الحروف والكلمات",
+  colors:"الألوان والأشكال",
+  animals:"الحيوانات",
+  achievements:"الإنجازات",
+  settings:"الإعدادات",
+  language:"اللغة",
+  sound:"الصوت",
+  home:"الرئيسية",
+  next:"التالي",
+  correct:"أحسنت! 🎉 إجابة صحيحة!",
+  wrong:"حاول مرة أخرى! 💪",
+  levelup:"رائع! 🎊 وصلت إلى مستوى جديد!",
+  choose:"اختر الإجابة الصحيحة",
+  which:"ما هي الإجابة الصحيحة؟",
+  reset:"إعادة التقدم",
+  resetConfirm:"هل أنت متأكد أنك تريد حذف كل تقدمك؟",
+  resetDone:"تمت إعادة التقدم.",
+  mathMode:"تحدي الرياضيات",
+  wordMode:"تحدي الحروف والكلمات",
+  colorMode:"تحدي الألوان والأشكال",
+  animalMode:"تحدي الحيوانات",
+  achievementsTitle:"إنجازاتك",
+  achievement1:"البداية",
+  achievement5:"متعلم صغير",
+  achievement10:"نجم صاعد",
+  achievement20:"بطل التعلم",
+  achievement50:"عبقري صغير",
+  achievement100:"أسطورة الأطفال",
+  achievementDesc1:"احصل على نجمة واحدة",
+  achievementDesc5:"احصل على 5 نجوم",
+  achievementDesc10:"احصل على 10 نجوم",
+  achievementDesc20:"احصل على 20 نجمة",
+  achievementDesc50:"احصل على 50 نجمة",
+  achievementDesc100:"احصل على 100 نجمة",
+  xp:"XP"
 },
 
 en:{
-welcome:"Smart Kids World",
-learn:"Learn, play and earn stars!",
-math:"Math",
-letters:"Letters & Words",
-colors:"Colors & Shapes",
-animals:"Animals",
-level:"Level",
-ach:"Achievements",
-soundOn:"Sound: ON",
-soundOff:"Sound: OFF",
-reset:"Reset Progress",
-home:"Home",
-next:"Next Question",
-great:"🎉 Great!",
-try:"😊 Try again!",
-achTitle:"🏆 Achievements",
-first:"🌟 First Star",
-five:"⭐ Five Stars",
-ten:"🏆 Ten Stars",
-twenty:"👑 Twenty Stars"
+  welcomeTitle:"Welcome to Smart Kids World!",
+  welcomeText:"Learn, play, earn stars and level up!",
+  level:"Level",
+  stars:"Stars",
+  streak:"Streak",
+  math:"Math",
+  words:"Letters & Words",
+  colors:"Colors & Shapes",
+  animals:"Animals",
+  achievements:"Achievements",
+  settings:"Settings",
+  language:"Language",
+  sound:"Sound",
+  home:"Home",
+  next:"Next",
+  correct:"Excellent! 🎉 Correct!",
+  wrong:"Try again! 💪",
+  levelup:"Amazing! 🎊 New level!",
+  choose:"Choose the correct answer",
+  which:"What is the correct answer?",
+  reset:"Reset Progress",
+  resetConfirm:"Are you sure you want to delete all progress?",
+  resetDone:"Progress reset.",
+  mathMode:"Math Challenge",
+  wordMode:"Letters & Words Challenge",
+  colorMode:"Colors & Shapes Challenge",
+  animalMode:"Animal Challenge",
+  achievementsTitle:"Your Achievements",
+  achievement1:"First Step",
+  achievement5:"Little Learner",
+  achievement10:"Rising Star",
+  achievement20:"Learning Hero",
+  achievement50:"Little Genius",
+  achievement100:"Kids Legend",
+  achievementDesc1:"Earn 1 star",
+  achievementDesc5:"Earn 5 stars",
+  achievementDesc10:"Earn 10 stars",
+  achievementDesc20:"Earn 20 stars",
+  achievementDesc50:"Earn 50 stars",
+  achievementDesc100:"Earn 100 stars",
+  xp:"XP"
 },
 
 tr:{
-welcome:"Akıllı Çocuklar Dünyası",
-learn:"Öğren, oyna ve yıldız kazan!",
-math:"Matematik",
-letters:"Harfler ve Kelimeler",
-colors:"Renkler ve Şekiller",
-animals:"Hayvanlar",
-level:"Seviye",
-ach:"Başarılar",
-soundOn:"Ses: Açık",
-soundOff:"Ses: Kapalı",
-reset:"İlerlemeyi Sıfırla",
-home:"Ana Sayfa",
-next:"Sonraki Soru",
-great:"🎉 Harika!",
-try:"😊 Tekrar dene!",
-achTitle:"🏆 Başarılar",
-first:"🌟 İlk Yıldız",
-five:"⭐ Beş Yıldız",
-ten:"🏆 On Yıldız",
-twenty:"👑 Yirmi Yıldız"
+  welcomeTitle:"Akıllı Çocuklar Dünyasına Hoş Geldin!",
+  welcomeText:"Öğren, oyna, yıldız kazan ve seviye atla!",
+  level:"Seviye",
+  stars:"Yıldız",
+  streak:"Seri",
+  math:"Matematik",
+  words:"Harfler ve Kelimeler",
+  colors:"Renkler ve Şekiller",
+  animals:"Hayvanlar",
+  achievements:"Başarılar",
+  settings:"Ayarlar",
+  language:"Dil",
+  sound:"Ses",
+  home:"Ana Sayfa",
+  next:"Sonraki",
+  correct:"Harika! 🎉 Doğru!",
+  wrong:"Tekrar dene! 💪",
+  levelup:"Harika! 🎊 Yeni seviye!",
+  choose:"Doğru cevabı seç",
+  which:"Doğru cevap hangisi?",
+  reset:"İlerlemeyi Sıfırla",
+  resetConfirm:"Tüm ilerlemeni silmek istediğine emin misin?",
+  resetDone:"İlerleme sıfırlandı.",
+  mathMode:"Matematik Görevi",
+  wordMode:"Harf ve Kelime Görevi",
+  colorMode:"Renk ve Şekil Görevi",
+  animalMode:"Hayvan Görevi",
+  achievementsTitle:"Başarıların",
+  achievement1:"İlk Adım",
+  achievement5:"Küçük Öğrenci",
+  achievement10:"Yükselen Yıldız",
+  achievement20:"Öğrenme Kahramanı",
+  achievement50:"Küçük Dahi",
+  achievement100:"Çocuklar Efsanesi",
+  achievementDesc1:"1 yıldız kazan",
+  achievementDesc5:"5 yıldız kazan",
+  achievementDesc10:"10 yıldız kazan",
+  achievementDesc20:"20 yıldız kazan",
+  achievementDesc50:"50 yıldız kazan",
+  achievementDesc100:"100 yıldız kazan",
+  xp:"XP"
 },
 
 fr:{
-welcome:"Monde des enfants intelligents",
-learn:"Apprends, joue et gagne des étoiles!",
-math:"Mathématiques",
-letters:"Lettres et mots",
-colors:"Couleurs et formes",
-animals:"Animaux",
-level:"Niveau",
-ach:"Succès",
-soundOn:"Son : activé",
-soundOff:"Son : désactivé",
-reset:"Réinitialiser",
-home:"Accueil",
-next:"Question suivante",
-great:"🎉 Bravo!",
-try:"😊 Réessaie!",
-achTitle:"🏆 Succès",
-first:"🌟 Première étoile",
-five:"⭐ Cinq étoiles",
-ten:"🏆 Dix étoiles",
-twenty:"👑 Vingt étoiles"
+  welcomeTitle:"Bienvenue dans Smart Kids World !",
+  welcomeText:"Apprends, joue, gagne des étoiles et monte de niveau !",
+  level:"Niveau",
+  stars:"Étoiles",
+  streak:"Série",
+  math:"Mathématiques",
+  words:"Lettres et mots",
+  colors:"Couleurs et formes",
+  animals:"Animaux",
+  achievements:"Réussites",
+  settings:"Paramètres",
+  language:"Langue",
+  sound:"Son",
+  home:"Accueil",
+  next:"Suivant",
+  correct:"Excellent ! 🎉 Correct !",
+  wrong:"Essaie encore ! 💪",
+  levelup:"Bravo ! 🎊 Nouveau niveau !",
+  choose:"Choisis la bonne réponse",
+  which:"Quelle est la bonne réponse ?",
+  reset:"Réinitialiser",
+  resetConfirm:"Supprimer toute la progression ?",
+  resetDone:"Progression réinitialisée.",
+  mathMode:"Défi de mathématiques",
+  wordMode:"Défi lettres et mots",
+  colorMode:"Défi couleurs et formes",
+  animalMode:"Défi animaux",
+  achievementsTitle:"Tes réussites",
+  achievement1:"Premier pas",
+  achievement5:"Petit apprenant",
+  achievement10:"Étoile montante",
+  achievement20:"Héros de l'apprentissage",
+  achievement50:"Petit génie",
+  achievement100:"Légende des enfants",
+  achievementDesc1:"Gagne 1 étoile",
+  achievementDesc5:"Gagne 5 étoiles",
+  achievementDesc10:"Gagne 10 étoiles",
+  achievementDesc20:"Gagne 20 étoiles",
+  achievementDesc50:"Gagne 50 étoiles",
+  achievementDesc100:"Gagne 100 étoiles",
+  xp:"XP"
 },
 
 es:{
-welcome:"Mundo de niños inteligentes",
-learn:"¡Aprende, juega y gana estrellas!",
-math:"Matemáticas",
-letters:"Letras y palabras",
-colors:"Colores y formas",
-animals:"Animales",
-level:"Nivel",
-ach:"Logros",
-soundOn:"Sonido: activado",
-soundOff:"Sonido: apagado",
-reset:"Reiniciar progreso",
-home:"Inicio",
-next:"Siguiente pregunta",
-great:"🎉 ¡Muy bien!",
-try:"😊 ¡Inténtalo otra vez!",
-achTitle:"🏆 Logros",
-first:"🌟 Primera estrella",
-five:"⭐ Cinco estrellas",
-ten:"🏆 Diez estrellas",
-twenty:"👑 Veinte estrellas"
+  welcomeTitle:"¡Bienvenido a Smart Kids World!",
+  welcomeText:"¡Aprende, juega, gana estrellas y sube de nivel!",
+  level:"Nivel",
+  stars:"Estrellas",
+  streak:"Racha",
+  math:"Matemáticas",
+  words:"Letras y palabras",
+  colors:"Colores y formas",
+  animals:"Animales",
+  achievements:"Logros",
+  settings:"Ajustes",
+  language:"Idioma",
+  sound:"Sonido",
+  home:"Inicio",
+  next:"Siguiente",
+  correct:"¡Excelente! 🎉 ¡Correcto!",
+  wrong:"¡Inténtalo otra vez! 💪",
+  levelup:"¡Genial! 🎊 ¡Nuevo nivel!",
+  choose:"Elige la respuesta correcta",
+  which:"¿Cuál es la respuesta correcta?",
+  reset:"Reiniciar progreso",
+  resetConfirm:"¿Seguro que quieres borrar todo el progreso?",
+  resetDone:"Progreso reiniciado.",
+  mathMode:"Desafío de matemáticas",
+  wordMode:"Desafío de letras y palabras",
+  colorMode:"Desafío de colores y formas",
+  animalMode:"Desafío de animales",
+  achievementsTitle:"Tus logros",
+  achievement1:"Primer paso",
+  achievement5:"Pequeño aprendiz",
+  achievement10:"Estrella creciente",
+  achievement20:"Héroe del aprendizaje",
+  achievement50:"Pequeño genio",
+  achievement100:"Leyenda infantil",
+  achievementDesc1:"Gana 1 estrella",
+  achievementDesc5:"Gana 5 estrellas",
+  achievementDesc10:"Gana 10 estrellas",
+  achievementDesc20:"Gana 20 estrellas",
+  achievementDesc50:"Gana 50 estrellas",
+  achievementDesc100:"Gana 100 estrellas",
+  xp:"XP"
 },
 
 de:{
-welcome:"Die Welt der klugen Kinder",
-learn:"Lerne, spiele und sammle Sterne!",
-math:"Mathematik",
-letters:"Buchstaben und Wörter",
-colors:"Farben und Formen",
-animals:"Tiere",
-level:"Stufe",
-ach:"Erfolge",
-soundOn:"Ton: An",
-soundOff:"Ton: Aus",
-reset:"Fortschritt zurücksetzen",
-home:"Start",
-next:"Nächste Frage",
-great:"🎉 Super!",
-try:"😊 Versuch es noch einmal!",
-achTitle:"🏆 Erfolge",
-first:"🌟 Erster Stern",
-five:"⭐ Fünf Sterne",
-ten:"🏆 Zehn Sterne",
-twenty:"👑 Zwanzig Sterne"
+  welcomeTitle:"Willkommen bei Smart Kids World!",
+  welcomeText:"Lerne, spiele, sammle Sterne und steige auf!",
+  level:"Level",
+  stars:"Sterne",
+  streak:"Serie",
+  math:"Mathematik",
+  words:"Buchstaben & Wörter",
+  colors:"Farben & Formen",
+  animals:"Tiere",
+  achievements:"Erfolge",
+  settings:"Einstellungen",
+  language:"Sprache",
+  sound:"Ton",
+  home:"Startseite",
+  next:"Weiter",
+  correct:"Super! 🎉 Richtig!",
+  wrong:"Versuche es noch einmal! 💪",
+  levelup:"Fantastisch! 🎊 Neues Level!",
+  choose:"Wähle die richtige Antwort",
+  which:"Was ist die richtige Antwort?",
+  reset:"Fortschritt löschen",
+  resetConfirm:"Möchtest du wirklich deinen Fortschritt löschen?",
+  resetDone:"Fortschritt gelöscht.",
+  mathMode:"Mathe-Herausforderung",
+  wordMode:"Buchstaben- und Wörter-Herausforderung",
+  colorMode:"Farben- und Formen-Herausforderung",
+  animalMode:"Tier-Herausforderung",
+  achievementsTitle:"Deine Erfolge",
+  achievement1:"Erster Schritt",
+  achievement5:"Kleiner Lerner",
+  achievement10:"Aufsteigender Stern",
+  achievement20:"Lernheld",
+  achievement50:"Kleines Genie",
+  achievement100:"Kinderlegende",
+  achievementDesc1:"Verdiene 1 Stern",
+  achievementDesc5:"Verdiene 5 Sterne",
+  achievementDesc10:"Verdiene 10 Sterne",
+  achievementDesc20:"Verdiene 20 Sterne",
+  achievementDesc50:"Verdiene 50 Sterne",
+  achievementDesc100:"Verdiene 100 Sterne",
+  xp:"XP"
 }
 
 };
 
-const data={
+/* ---------- DATA ---------- */
+
+const DATA = {
 
 ar:{
-letters:["أ","ب","ت","ث","ج","ح","د","ر","س","م"],
-colors:["🔴 أحمر","🔵 أزرق","🟢 أخضر","🟡 أصفر"],
-animals:["🐶 كلب","🐱 قطة","🦁 أسد","🐘 فيل"]
+ letters:["أ","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","ه","و","ي"],
+ words:[
+  ["أسد","أ"],["بطة","ب"],["تفاحة","ت"],["ثعلب","ث"],["جمل","ج"],
+  ["حصان","ح"],["خروف","خ"],["دب","د"],["ذهب","ذ"],["رمان","ر"],
+  ["زرافة","ز"],["سمكة","س"],["شجرة","ش"],["صقر","ص"],["ضفدع","ض"],
+  ["طائرة","ط"],["ظرف","ظ"],["عصفور","ع"],["غزال","غ"],["فيل","ف"],
+  ["قمر","ق"],["كتاب","ك"],["ليمون","ل"],["موز","م"],["نمر","ن"],
+  ["هلال","ه"],["وردة","و"],["يد","ي"]
+ ],
+ colors:[
+  ["أحمر","#ff7675","🔴"],["أزرق","#0984e3","🔵"],["أخضر","#00b894","🟢"],
+  ["أصفر","#fdcb6e","🟡"],["بنفسجي","#6c5ce7","🟣"],["برتقالي","#e17055","🟠"]
+ ],
+ shapes:[
+  ["دائرة","●"],["مربع","■"],["مثلث","▲"],["نجمة","★"],["قلب","♥"]
+ ],
+ animals:[
+  ["أسد","🦁"],["قطة","🐱"],["كلب","🐶"],["فيل","🐘"],["حصان","🐴"],
+  ["أرنب","🐰"],["دب","🐻"],["قرد","🐵"],["بقرة","🐮"],["دجاجة","🐔"],
+  ["سمكة","🐟"],["فراشة","🦋"],["زرافة","🦒"],["نمر","🐯"],["باندا","🐼"]
+ ]
 },
 
 en:{
-letters:["A","B","C","D","E","F","G","H","I","J"],
-colors:["🔴 Red","🔵 Blue","🟢 Green","🟡 Yellow"],
-animals:["🐶 Dog","🐱 Cat","🦁 Lion","🐘 Elephant"]
+ letters:"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""),
+ words:[
+  ["Apple","A"],["Ball","B"],["Cat","C"],["Dog","D"],["Elephant","E"],
+  ["Fish","F"],["Giraffe","G"],["House","H"],["Ice","I"],["Juice","J"],
+  ["Kite","K"],["Lion","L"],["Moon","M"],["Nest","N"],["Orange","O"],
+  ["Pizza","P"],["Queen","Q"],["Rabbit","R"],["Sun","S"],["Tiger","T"],
+  ["Umbrella","U"],["Violin","V"],["Water","W"],["Xylophone","X"],
+  ["Yellow","Y"],["Zebra","Z"]
+ ],
+ colors:[
+  ["Red","#ff7675","🔴"],["Blue","#0984e3","🔵"],["Green","#00b894","🟢"],
+  ["Yellow","#fdcb6e","🟡"],["Purple","#6c5ce7","🟣"],["Orange","#e17055","🟠"]
+ ],
+ shapes:[
+  ["Circle","●"],["Square","■"],["Triangle","▲"],["Star","★"],["Heart","♥"]
+ ],
+ animals:[
+  ["Lion","🦁"],["Cat","🐱"],["Dog","🐶"],["Elephant","🐘"],["Horse","🐴"],
+  ["Rabbit","🐰"],["Bear","🐻"],["Monkey","🐵"],["Cow","🐮"],["Chicken","🐔"],
+  ["Fish","🐟"],["Butterfly","🦋"],["Giraffe","🦒"],["Tiger","🐯"],["Panda","🐼"]
+ ]
 },
 
 tr:{
-letters:["A","B","C","Ç","D","E","F","G","Ğ","H"],
-colors:["🔴 Kırmızı","🔵 Mavi","🟢 Yeşil","🟡 Sarı"],
-animals:["🐶 Köpek","🐱 Kedi","🦁 Aslan","🐘 Fil"]
+ letters:"ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ".split(""),
+ words:[
+  ["Arı","A"],["Balık","B"],["Ceviz","C"],["Çiçek","Ç"],["Dondurma","D"],
+  ["Elma","E"],["Fil","F"],["Güneş","G"],["Horoz","H"],["İnek","İ"],
+  ["Kedi","K"],["Limon","L"],["Masa","M"],["Nar","N"],["Ördek","Ö"],
+  ["Portakal","P"],["Renk","R"],["Su","S"],["Şemsiye","Ş"],["Tavşan","T"],
+  ["Uçak","U"],["Üzüm","Ü"],["Vişne","V"],["Yıldız","Y"],["Zebra","Z"]
+ ],
+ colors:[
+  ["Kırmızı","#ff7675","🔴"],["Mavi","#0984e3","🔵"],["Yeşil","#00b894","🟢"],
+  ["Sarı","#fdcb6e","🟡"],["Mor","#6c5ce7","🟣"],["Turuncu","#e17055","🟠"]
+ ],
+ shapes:[
+  ["Daire","●"],["Kare","■"],["Üçgen","▲"],["Yıldız","★"],["Kalp","♥"]
+ ],
+ animals:[
+  ["Aslan","🦁"],["Kedi","🐱"],["Köpek","🐶"],["Fil","🐘"],["At","🐴"],
+  ["Tavşan","🐰"],["Ayı","🐻"],["Maymun","🐵"],["İnek","🐮"],["Tavuk","🐔"],
+  ["Balık","🐟"],["Kelebek","🦋"],["Zürafa","🦒"],["Kaplan","🐯"],["Panda","🐼"]
+ ]
 },
 
 fr:{
-letters:["A","B","C","D","E","F","G","H","I","J"],
-colors:["🔴 Rouge","🔵 Bleu","🟢 Vert","🟡 Jaune"],
-animals:["🐶 Chien","🐱 Chat","🦁 Lion","🐘 Éléphant"]
+ letters:"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""),
+ words:[
+  ["Avion","A"],["Banane","B"],["Chat","C"],["Dauphin","D"],["Éléphant","É"],
+  ["Fleur","F"],["Girafe","G"],["Hérisson","H"],["Igloo","I"],["Jardin","J"],
+  ["Koala","K"],["Lion","L"],["Maison","M"],["Nuage","N"],["Orange","O"],
+  ["Poisson","P"],["Queue","Q"],["Rose","R"],["Soleil","S"],["Tigre","T"],
+  ["Usine","U"],["Vélo","V"],["Wagon","W"],["Xylophone","X"],["Yaourt","Y"],["Zèbre","Z"]
+ ],
+ colors:[
+  ["Rouge","#ff7675","🔴"],["Bleu","#0984e3","🔵"],["Vert","#00b894","🟢"],
+  ["Jaune","#fdcb6e","🟡"],["Violet","#6c5ce7","🟣"],["Orange","#e17055","🟠"]
+ ],
+ shapes:[
+  ["Cercle","●"],["Carré","■"],["Triangle","▲"],["Étoile","★"],["Cœur","♥"]
+ ],
+ animals:[
+  ["Lion","🦁"],["Chat","🐱"],["Chien","🐶"],["Éléphant","🐘"],["Cheval","🐴"],
+  ["Lapin","🐰"],["Ours","🐻"],["Singe","🐵"],["Vache","🐮"],["Poulet","🐔"],
+  ["Poisson","🐟"],["Papillon","🦋"],["Girafe","🦒"],["Tigre","🐯"],["Panda","🐼"]
+ ]
 },
 
 es:{
-letters:["A","B","C","D","E","F","G","H","I","J"],
-colors:["🔴 Rojo","🔵 Azul","🟢 Verde","🟡 Amarillo"],
-animals:["🐶 Perro","🐱 Gato","🦁 León","🐘 Elefante"]
+ letters:"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""),
+ words:[
+  ["Árbol","Á"],["Barco","B"],["Casa","C"],["Dado","D"],["Elefante","E"],
+  ["Flor","F"],["Gato","G"],["Helado","H"],["Iglú","I"],["Jirafa","J"],
+  ["Koala","K"],["Luna","L"],["Manzana","M"],["Nube","N"],["Oso","O"],
+  ["Pato","P"],["Queso","Q"],["Ratón","R"],["Sol","S"],["Tigre","T"],
+  ["Uva","U"],["Vaca","V"],["Wafle","W"],["Xilófono","X"],["Yate","Y"],["Zorro","Z"]
+ ],
+ colors:[
+  ["Rojo","#ff7675","🔴"],["Azul","#0984e3","🔵"],["Verde","#00b894","🟢"],
+  ["Amarillo","#fdcb6e","🟡"],["Morado","#6c5ce7","🟣"],["Naranja","#e17055","🟠"]
+ ],
+ shapes:[
+  ["Círculo","●"],["Cuadrado","■"],["Triángulo","▲"],["Estrella","★"],["Corazón","♥"]
+ ],
+ animals:[
+  ["León","🦁"],["Gato","🐱"],["Perro","🐶"],["Elefante","🐘"],["Caballo","🐴"],
+  ["Conejo","🐰"],["Oso","🐻"],["Mono","🐵"],["Vaca","🐮"],["Pollo","🐔"],
+  ["Pez","🐟"],["Mariposa","🦋"],["Jirafa","🦒"],["Tigre","🐯"],["Panda","🐼"]
+ ]
 },
 
 de:{
-letters:["A","B","C","D","E","F","G","H","I","J"],
-colors:["🔴 Rot","🔵 Blau","🟢 Grün","🟡 Gelb"],
-animals:["🐶 Hund","🐱 Katze","🦁 Löwe","🐘 Elefant"]
+ letters:"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""),
+ words:[
+  ["Apfel","A"],["Ball","B"],["Clown","C"],["Delfin","D"],["Elefant","E"],
+  ["Fisch","F"],["Giraffe","G"],["Haus","H"],["Igel","I"],["Jacke","J"],
+  ["Kuchen","K"],["Löwe","L"],["Mond","M"],["Nase","N"],["Orange","O"],
+  ["Pizza","P"],["Qualle","Q"],["Rose","R"],["Sonne","S"],["Tiger","T"],
+  ["Uhr","U"],["Vogel","V"],["Wasser","W"],["Xylophon","X"],["Yacht","Y"],["Zebra","Z"]
+ ],
+ colors:[
+  ["Rot","#ff7675","🔴"],["Blau","#0984e3","🔵"],["Grün","#00b894","🟢"],
+  ["Gelb","#fdcb6e","🟡"],["Lila","#6c5ce7","🟣"],["Orange","#e17055","🟠"]
+ ],
+ shapes:[
+  ["Kreis","●"],["Quadrat","■"],["Dreieck","▲"],["Stern","★"],["Herz","♥"]
+ ],
+ animals:[
+  ["Löwe","🦁"],["Katze","🐱"],["Hund","🐶"],["Elefant","🐘"],["Pferd","🐴"],
+  ["Hase","🐰"],["Bär","🐻"],["Affe","🐵"],["Kuh","🐮"],["Huhn","🐔"],
+  ["Fisch","🐟"],["Schmetterling","🦋"],["Giraffe","🦒"],["Tiger","🐯"],["Panda","🐼"]
+ ]
 }
 
 };
 
-function $(x){
-return document.getElementById(x);
-}
+/* ---------- STATE ---------- */
+
+let state = JSON.parse(localStorage.getItem("smartKidsWorld")) || {
+  stars:0,
+  xp:0,
+  streak:0,
+  answered:0,
+  language:"ar",
+  sound:true,
+  achievements:[]
+};
+
+let currentGame = null;
+let currentQuestion = null;
+let answered = false;
+
+/* ---------- HELPERS ---------- */
 
 function save(){
-
-localStorage.stars=stars;
-localStorage.lang=lang;
-localStorage.sound=sound?"on":"off";
-
-update();
-
+  localStorage.setItem("smartKidsWorld",JSON.stringify(state));
 }
 
-function update(){
-
-let t=tr[lang];
-
-$("stars").textContent=stars;
-
-$("level").textContent=Math.floor(stars/5)+1;
-
-$("progress").style.width=(stars%5)*20+"%";
-
-$("welcome").textContent=t.welcome;
-$("learn").textContent=t.learn;
-$("mathBtn").textContent=t.math;
-$("lettersBtn").textContent=t.letters;
-$("colorsBtn").textContent=t.colors;
-$("animalsBtn").textContent=t.animals;
-$("levelText").textContent=t.level;
-$("achBtn").textContent=t.ach;
-$("soundBtn").textContent=sound?t.soundOn:t.soundOff;
-$("resetBtn").textContent=t.reset;
-$("homeBtn").textContent=t.home;
-$("nextBtn").textContent=t.next;
-$("achTitle").textContent=t.achTitle;
-
+function getLevel(){
+  return Math.floor(state.stars / 5) + 1;
 }
 
-function openLang(){
-$("langBox").classList.remove("hidden");
+function randomInt(min,max){
+  return Math.floor(Math.random()*(max-min+1))+min;
 }
 
-function closeLang(){
-$("langBox").classList.add("hidden");
+function shuffle(arr){
+  return [...arr].sort(()=>Math.random()-0.5);
 }
 
-function setLang(x){
-
-lang=x;
-
-closeLang();
-
-update();
-
-if(!$("play").classList.contains("hidden")){
-start(type);
+function t(key){
+  return T[state.language][key] || T.en[key] || key;
 }
 
+/* ---------- AUDIO ---------- */
+
+let audioContext = null;
+
+function initAudio(){
+  try{
+    if(!audioContext){
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    if(audioContext.state === "suspended"){
+      audioContext.resume();
+    }
+  }catch(e){}
 }
 
-function home(){
+function beep(type){
 
-$("play").classList.add("hidden");
+  if(!state.sound) return;
 
-$("home").classList.remove("hidden");
+  try{
 
-update();
+    initAudio();
 
-}
+    if(!audioContext) return;
 
-function start(x){
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
 
-type=x;
+    osc.connect(gain);
+    gain.connect(audioContext.destination);
 
-answered=false;
+    let frequency = 500;
 
-$("home").classList.add("hidden");
+    if(type === "correct") frequency = 700;
+    if(type === "wrong") frequency = 180;
+    if(type === "level") frequency = 900;
+    if(type === "click") frequency = 400;
 
-$("play").classList.remove("hidden");
+    osc.frequency.value = frequency;
+    osc.type = "sine";
 
-$("gameTitle").textContent=tr[lang][x];
+    gain.gain.setValueAtTime(.001,audioContext.currentTime);
+    gain.gain.exponentialRampToValueAtTime(.2,audioContext.currentTime+.02);
+    gain.gain.exponentialRampToValueAtTime(.001,audioContext.currentTime+.25);
 
-nextQuestion();
+    osc.start();
+    osc.stop(audioContext.currentTime+.25);
 
-}
-
-function shuffle(a){
-
-return a.sort(()=>Math.random()-.5);
-
-}
-
-function uniqueAnswers(correct,arr){
-
-let others=arr.filter(x=>x!==correct);
-
-return shuffle([
-correct,
-...shuffle(others).slice(0,3)
-]);
-
-}
-
-function nextQuestion(){
-
-answered=false;
-
-$("message").textContent="";
-
-let q="";
-let answers=[];
-
-if(type==="math"){
-
-let max=Math.min(
-10+Math.floor(stars/5)*5,
-50
-);
-
-let a=Math.floor(Math.random()*max)+1;
-
-let b=Math.floor(Math.random()*max)+1;
-
-correct=a+b;
-
-q=`${a} + ${b} = ?`;
-
-let set=new Set([correct]);
-
-while(set.size<4){
-
-let n=Math.max(
-0,
-correct+Math.floor(Math.random()*7)-3
-);
-
-set.add(n);
-
-}
-
-answers=shuffle([...set]);
-
-}
-
-if(type==="letters"){
-
-let arr=data[lang].letters;
-
-correct=arr[
-Math.floor(Math.random()*arr.length)
-];
-
-q="🔤 "+correct;
-
-answers=uniqueAnswers(
-correct,
-arr
-);
-
-}
-
-if(type==="colors"){
-
-let arr=data[lang].colors;
-
-correct=arr[
-Math.floor(Math.random()*arr.length)
-];
-
-q="🎨 "+correct;
-
-answers=uniqueAnswers(
-correct,
-arr
-);
-
-}
-
-if(type==="animals"){
-
-let arr=data[lang].animals;
-
-correct=arr[
-Math.floor(Math.random()*arr.length)
-];
-
-q=correct.split(" ")[0]+" ❓";
-
-answers=uniqueAnswers(
-correct,
-arr
-);
-
-}
-
-$("question").textContent=q;
-
-$("answers").innerHTML="";
-
-answers.forEach(answer=>{
-
-let b=document.createElement("button");
-
-b.textContent=answer;
-
-b.onclick=function(){
-
-if(answered)return;
-
-answered=true;
-
-if(answer===correct){
-
-b.classList.add("correct");
-
-stars++;
-
-$("message").textContent=
-tr[lang].great+" ⭐";
-
-speak(tr[lang].great);
-
-save();
-
-}else{
-
-b.classList.add("wrong");
-
-$("message").textContent=
-tr[lang].try;
-
-speak(tr[lang].try);
-
-[
-...$("answers").children
-].forEach(x=>{
-
-if(x.textContent===correct){
-
-x.classList.add("correct");
-
-}
-
-});
-
-}
-
-};
-
-$("answers").appendChild(b);
-
-});
-
+  }catch(e){}
 }
 
 function speak(text){
 
-if(!sound||!window.speechSynthesis)return;
+  if(!state.sound) return;
 
-speechSynthesis.cancel();
+  try{
 
-let u=
-new SpeechSynthesisUtterance(text);
+    if(!("speechSynthesis" in window)) return;
 
-u.lang={
+    speechSynthesis.cancel();
 
-ar:"ar-SA",
-en:"en-US",
-tr:"tr-TR",
-fr:"fr-FR",
-es:"es-ES",
-de:"de-DE"
+    const voice = new SpeechSynthesisUtterance(text);
 
-}[lang];
+    const langs={
+      ar:"ar-SA",
+      en:"en-US",
+      tr:"tr-TR",
+      fr:"fr-FR",
+      es:"es-ES",
+      de:"de-DE"
+    };
 
-speechSynthesis.speak(u);
+    voice.lang=langs[state.language] || "en-US";
+    voice.rate=.85;
+    voice.pitch=1.1;
+
+    speechSynthesis.speak(voice);
+
+  }catch(e){}
+}
+
+/* ---------- UI ---------- */
+
+function updateUI(){
+
+  const level=getLevel();
+
+  document.getElementById("stars").textContent=state.stars;
+  document.getElementById("xp").textContent=state.xp;
+  document.getElementById("streak").textContent=state.streak;
+  document.getElementById("level").textContent=level;
+  document.getElementById("homeLevel").textContent=level;
+
+  const progress=(state.stars%5)/5*100;
+
+  document.getElementById("progress").style.width=progress+"%";
+
+  document.getElementById("starsLabel").textContent=t("stars");
+  document.getElementById("streakLabel").textContent=t("streak");
+  document.getElementById("levelLabel").textContent=t("level");
+
+  document.getElementById("welcomeTitle").textContent=t("welcomeTitle");
+  document.getElementById("welcomeText").textContent=t("welcomeText");
+
+  document.getElementById("mathMenu").textContent=t("math");
+  document.getElementById("wordsMenu").textContent=t("words");
+  document.getElementById("colorsMenu").textContent=t("colors");
+  document.getElementById("animalsMenu").textContent=t("animals");
+  document.getElementById("achievementsMenu").textContent=t("achievements");
+  document.getElementById("settingsMenu").textContent=t("settings");
+
+  document.getElementById("homeLevelText").textContent=t("level");
+
+  document.getElementById("achievementTitle").textContent=t("achievementsTitle");
+
+  document.getElementById("settingsTitle").textContent=t("settings");
+  document.getElementById("languageTitle").textContent="🌍 "+t("language");
+  document.getElementById("soundTitle").textContent="🔊 "+t("sound");
+  document.getElementById("resetText").textContent=t("reset");
+  document.getElementById("homeText").textContent=t("home");
+
+  document.getElementById("soundBtn").textContent=state.sound ? "🔊 ON" : "🔇 OFF";
+
+  document.documentElement.lang=state.language;
+  document.documentElement.dir=state.language==="ar" ? "rtl" : "ltr";
+
+  document.querySelectorAll(".language-buttons button").forEach(b=>{
+    b.classList.remove("selected");
+  });
+
+  const lang=document.getElementById("lang-"+state.language);
+
+  if(lang) lang.classList.add("selected");
+}
+
+/* ---------- NAVIGATION ---------- */
+
+function hideScreens(){
+
+  document.querySelectorAll(".screen").forEach(s=>{
+    s.classList.remove("active");
+  });
 
 }
+
+function goHome(){
+
+  hideScreens();
+  document.getElementById("home").classList.add("active");
+  updateUI();
+
+}
+
+function showSettings(){
+
+  hideScreens();
+  document.getElementById("settingsScreen").classList.add("active");
+  updateUI();
+
+}
+
+function showAchievements(){
+
+  hideScreens();
+  document.getElementById("achievementScreen").classList.add("active");
+  renderAchievements();
+
+}
+
+/* ---------- LANGUAGE ---------- */
+
+function setLanguage(lang){
+
+  state.language=lang;
+  save();
+  updateUI();
+
+  if(currentGame){
+    startGame(currentGame);
+  }
+
+}
+
+/* ---------- SOUND ---------- */
 
 function toggleSound(){
 
-sound=!sound;
+  state.sound=!state.sound;
 
-save();
+  if(state.sound){
+    initAudio();
+    beep("click");
+  }
 
-if(sound){
-
-speak(tr[lang].great);
+  save();
+  updateUI();
 
 }
 
+/* =====================================================
+   GAME START
+===================================================== */
+
+function startGame(type){
+
+  currentGame=type;
+  answered=false;
+
+  initAudio();
+
+  hideScreens();
+
+  document.getElementById("game").classList.add("active");
+
+  document.getElementById("feedback").textContent="";
+  document.getElementById("nextBtn").style.display="none";
+
+  generateQuestion();
+
 }
 
-function achievements(){
+/* ---------- QUESTION ENGINE ---------- */
 
-let t=tr[lang];
+function generateQuestion(){
 
-let list=[
+  answered=false;
 
-[1,t.first],
-[5,t.five],
-[10,t.ten],
-[20,t.twenty]
+  document.getElementById("feedback").textContent="";
+  document.getElementById("nextBtn").style.display="none";
 
+  const level=getLevel();
+
+  if(currentGame==="math"){
+    currentQuestion=makeMathQuestion(level);
+  }
+
+  if(currentGame==="words"){
+    currentQuestion=makeWordQuestion(level);
+  }
+
+  if(currentGame==="colors"){
+    currentQuestion=makeColorQuestion(level);
+  }
+
+  if(currentGame==="animals"){
+    currentQuestion=makeAnimalQuestion(level);
+  }
+
+  renderQuestion();
+
+}
+
+/* =====================================================
+   MATH
+===================================================== */
+
+function makeMathQuestion(level){
+
+  let a,b,answer,text,mode;
+
+  if(level<=3){
+
+    mode="addition";
+
+    a=randomInt(1,10+level*5);
+    b=randomInt(1,10+level*5);
+
+    answer=a+b;
+    text=`${a} + ${b} = ?`;
+
+  }else if(level<=6){
+
+    mode="subtraction";
+
+    a=randomInt(5,20+level*5);
+    b=randomInt(1,a);
+
+    answer=a-b;
+    text=`${a} − ${b} = ?`;
+
+  }else if(level<=9){
+
+    mode="multiplication";
+
+    a=randomInt(2,5+Math.floor(level/2));
+    b=randomInt(2,5+Math.floor(level/2));
+
+    answer=a*b;
+    text=`${a} × ${b} = ?`;
+
+  }else if(level<=13){
+
+    mode="division";
+
+    b=randomInt(2,10);
+    answer=randomInt(2,10);
+    a=b*answer;
+
+    text=`${a} ÷ ${b} = ?`;
+
+  }else if(level<=17){
+
+    mode="missing";
+
+    const x=randomInt(1,20+level);
+
+    const add=randomInt(1,15);
+
+    answer=x;
+
+    text=`? + ${add} = ${x+add}`;
+
+  }else if(level<=22){
+
+    mode="compare";
+
+    a=randomInt(10,100);
+    b=randomInt(10,100);
+
+    answer=a>b ? a : b;
+
+    text=`${a} و ${b}<br><small>اختر العدد الأكبر</small>`;
+
+  }else{
+
+    mode="mixed";
+
+    const type=randomInt(1,4);
+
+    if(type===1){
+
+      a=randomInt(20,100);
+      b=randomInt(10,50);
+      answer=a+b;
+      text=`${a} + ${b} = ?`;
+
+    }else if(type===2){
+
+      a=randomInt(30,150);
+      b=randomInt(10,a);
+      answer=a-b;
+      text=`${a} − ${b} = ?`;
+
+    }else if(type===3){
+
+      a=randomInt(3,12);
+      b=randomInt(3,12);
+      answer=a*b;
+      text=`${a} × ${b} = ?`;
+
+    }else{
+
+      b=randomInt(2,12);
+      answer=randomInt(3,15);
+      a=b*answer;
+
+      text=`${a} ÷ ${b} = ?`;
+
+    }
+
+  }
+
+  let options=[];
+
+  if(mode==="compare"){
+
+    options=[a,b];
+
+    while(options.length<4){
+      const n=randomInt(Math.max(1,Math.min(a,b)-20),Math.max(a,b)+20);
+      if(!options.includes(n)) options.push(n);
+    }
+
+  }else{
+
+    options=[answer];
+
+    while(options.length<4){
+
+      const delta=randomInt(1,Math.max(3,Math.floor(Math.abs(answer)*.35)+3));
+
+      const n=Math.random()<.5
+        ? answer+delta
+        : Math.max(0,answer-delta);
+
+      if(!options.includes(n)){
+        options.push(n);
+      }
+
+    }
+
+  }
+
+  return {
+    text,
+    answer,
+    options:shuffle(options),
+    speech:String(answer)
+  };
+
+}
+
+/* =====================================================
+   WORDS
+===================================================== */
+
+function makeWordQuestion(level){
+
+  const data=DATA[state.language] || DATA.en;
+
+  const item=data.words[randomInt(0,data.words.length-1)];
+
+  const word=item[0];
+  const answer=item[1];
+
+  let options=[answer];
+
+  while(options.length<4){
+
+    const letter=data.letters[randomInt(0,data.letters.length-1)];
+
+    if(!options.includes(letter)){
+      options.push(letter);
+    }
+
+  }
+
+  return {
+    text:`${t("which")}<br><br><strong style="font-size:38px">${word}</strong><br><small>ما هو الحرف الأول؟</small>`,
+    answer,
+    options:shuffle(options),
+    speech:word
+  };
+
+}
+
+/* =====================================================
+   COLORS
+===================================================== */
+
+function makeColorQuestion(level){
+
+  const data=DATA[state.language] || DATA.en;
+
+  const item=data.colors[randomInt(0,data.colors.length-1)];
+
+  let options=[item[0]];
+
+  while(options.length<4){
+
+    const other=data.colors[randomInt(0,data.colors.length-1)];
+
+    if(!options.includes(other[0])){
+      options.push(other[0]);
+    }
+
+  }
+
+  return {
+    text:t("choose"),
+    answer:item[0],
+    options:shuffle(options),
+    visual:{
+      type:"color",
+      color:item[1],
+      emoji:item[2]
+    },
+    speech:item[0]
+  };
+
+}
+
+/* =====================================================
+   SHAPES + COLORS MIX
+===================================================== */
+
+function makeShapeQuestion(){
+
+  const data=DATA[state.language] || DATA.en;
+
+  const item=data.shapes[randomInt(0,data.shapes.length-1)];
+
+  let options=[item[0]];
+
+  while(options.length<4){
+
+    const other=data.shapes[randomInt(0,data.shapes.length-1)];
+
+    if(!options.includes(other[0])){
+      options.push(other[0]);
+    }
+
+  }
+
+  return {
+    text:t("choose"),
+    answer:item[0],
+    options:shuffle(options),
+    visual:{
+      type:"shape",
+      shape:item[1]
+    },
+    speech:item[0]
+  };
+
+}
+
+/* override colors with mixed shapes at higher levels */
+
+const originalMakeColorQuestion=makeColorQuestion;
+
+makeColorQuestion=function(level){
+
+  if(level>=5 && Math.random()<.5){
+    return makeShapeQuestion();
+  }
+
+  return originalMakeColorQuestion(level);
+
+};
+
+/* =====================================================
+   ANIMALS
+===================================================== */
+
+function makeAnimalQuestion(level){
+
+  const data=DATA[state.language] || DATA.en;
+
+  const item=data.animals[randomInt(0,data.animals.length-1)];
+
+  let options=[item[0]];
+
+  while(options.length<4){
+
+    const other=data.animals[randomInt(0,data.animals.length-1)];
+
+    if(!options.includes(other[0])){
+      options.push(other[0]);
+    }
+
+  }
+
+  return {
+    text:t("choose"),
+    answer:item[0],
+    options:shuffle(options),
+    visual:{
+      type:"animal",
+      emoji:item[1]
+    },
+    speech:item[0]
+  };
+
+}
+
+/* =====================================================
+   RENDER QUESTION
+===================================================== */
+
+function renderQuestion(){
+
+  const level=getLevel();
+
+  document.getElementById("level").textContent=level;
+
+  let modeText=t("mathMode");
+
+  if(currentGame==="words") modeText=t("wordMode");
+  if(currentGame==="colors") modeText=t("colorMode");
+  if(currentGame==="animals") modeText=t("animalMode");
+
+  document.getElementById("gameMode").textContent=
+    modeText+" • "+t("level")+" "+level;
+
+  document.getElementById("question").innerHTML=
+    currentQuestion.text;
+
+  const visual=document.getElementById("questionVisual");
+
+  visual.innerHTML="";
+
+  if(currentQuestion.visual){
+
+    if(currentQuestion.visual.type==="color"){
+
+      visual.innerHTML=`
+        <div class="question-icon">
+          ${currentQuestion.visual.emoji}
+        </div>
+        <div class="color-box"
+             style="background:${currentQuestion.visual.color}">
+        </div>
+      `;
+
+    }
+
+    if(currentQuestion.visual.type==="shape"){
+
+      visual.innerHTML=`
+        <div class="shape-box">
+          ${currentQuestion.visual.shape}
+        </div>
+      `;
+
+    }
+
+    if(currentQuestion.visual.type==="animal"){
+
+      visual.innerHTML=`
+        <div class="question-icon">
+          ${currentQuestion.visual.emoji}
+        </div>
+      `;
+
+    }
+
+  }
+
+  const options=document.getElementById("options");
+
+  options.innerHTML="";
+
+  currentQuestion.options.forEach(option=>{
+
+    const button=document.createElement("button");
+
+    button.className="option";
+    button.textContent=option;
+
+    button.onclick=()=>checkAnswer(button,option);
+
+    options.appendChild(button);
+
+  });
+
+  speak(currentQuestion.speech || currentQuestion.text);
+
+}
+
+/* =====================================================
+   ANSWER
+===================================================== */
+
+function checkAnswer(button,answer){
+
+  if(answered) return;
+
+  answered=true;
+
+  const oldLevel=getLevel();
+
+  const all=document.querySelectorAll(".option");
+
+  all.forEach(b=>{
+    b.disabled=true;
+  });
+
+  if(String(answer)===String(currentQuestion.answer)){
+
+    button.classList.add("correct");
+
+    state.stars++;
+    state.xp+=10;
+    state.streak++;
+    state.answered++;
+
+    if(state.streak>=3){
+      state.xp+=5;
+    }
+
+    beep("correct");
+
+    document.getElementById("feedback").textContent=t("correct");
+
+    createConfetti();
+
+    checkAchievements();
+
+    const newLevel=getLevel();
+
+    if(newLevel>oldLevel){
+
+      state.xp+=25;
+
+      beep("level");
+
+      setTimeout(()=>{
+        showToast(t("levelup"));
+      },300);
+
+    }
+
+    save();
+    updateUI();
+
+  }else{
+
+    button.classList.add("wrong");
+
+    state.streak=0;
+    state.answered++;
+
+    beep("wrong");
+
+    document.getElementById("feedback").textContent=t("wrong");
+
+    all.forEach(b=>{
+
+      if(String(b.textContent)===String(currentQuestion.answer)){
+        b.classList.add("correct");
+      }
+
+    });
+
+    save();
+    updateUI();
+
+  }
+
+  document.getElementById("nextBtn").style.display="inline-block";
+
+}
+
+/* ---------- NEXT ---------- */
+
+function nextQuestion(){
+
+  generateQuestion();
+
+}
+
+/* =====================================================
+   ACHIEVEMENTS
+===================================================== */
+
+const achievementData=[
+  {
+    stars:1,
+    icon:"🌟",
+    title:"achievement1",
+    desc:"achievementDesc1"
+  },
+  {
+    stars:5,
+    icon:"📚",
+    title:"achievement5",
+    desc:"achievementDesc5"
+  },
+  {
+    stars:10,
+    icon:"⭐",
+    title:"achievement10",
+    desc:"achievementDesc10"
+  },
+  {
+    stars:20,
+    icon:"🏅",
+    title:"achievement20",
+    desc:"achievementDesc20"
+  },
+  {
+    stars:50,
+    icon:"🧠",
+    title:"achievement50",
+    desc:"achievementDesc50"
+  },
+  {
+    stars:100,
+    icon:"👑",
+    title:"achievement100",
+    desc:"achievementDesc100"
+  }
 ];
 
-$("achievementsList").innerHTML=
-list.map(x=>
+function checkAchievements(){
 
-`<div class="achievement">
-${stars>=x[0]?"✅":"🔒"} ${x[1]}
-</div>`
+  achievementData.forEach(item=>{
 
-).join("");
+    if(
+      state.stars>=item.stars &&
+      !state.achievements.includes(item.stars)
+    ){
 
-$("achBox").classList.remove("hidden");
+      state.achievements.push(item.stars);
 
-}
+      showToast("🏆 "+t(item.title));
 
-function closeAch(){
+    }
 
-$("achBox").classList.add("hidden");
+  });
 
-}
-
-function resetGame(){
-
-let text=
-lang==="ar"
-?"هل تريد حذف تقدمك؟"
-:"Reset your progress?";
-
-if(confirm(text)){
-
-stars=0;
-
-save();
+  save();
 
 }
 
+function renderAchievements(){
+
+  const list=document.getElementById("achievementList");
+
+  list.innerHTML="";
+
+  achievementData.forEach(item=>{
+
+    const unlocked=state.stars>=item.stars;
+
+    const div=document.createElement("div");
+
+    div.className="achievement"+(unlocked?"":" locked");
+
+    div.innerHTML=`
+      <div class="achievement-icon">
+        ${unlocked ? item.icon : "🔒"}
+      </div>
+
+      <div>
+        <h3>${t(item.title)}</h3>
+        <p>${t(item.desc)}</p>
+      </div>
+    `;
+
+    list.appendChild(div);
+
+  });
+
 }
 
-update();
+/* =====================================================
+   RESET
+===================================================== */
+
+function resetProgress(){
+
+  if(!confirm(t("resetConfirm"))) return;
+
+  state={
+    stars:0,
+    xp:0,
+    streak:0,
+    answered:0,
+    language:state.language,
+    sound:state.sound,
+    achievements:[]
+  };
+
+  save();
+  updateUI();
+  goHome();
+
+  showToast(t("resetDone"));
+
+}
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+let toastTimer=null;
+
+function showToast(message){
+
+  const toast=document.getElementById("toast");
+
+  toast.textContent=message;
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer=setTimeout(()=>{
+    toast.classList.remove("show");
+  },2200);
+
+}
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+function createConfetti(){
+
+  const symbols=["🎉","⭐","🌟","✨","🎊","💫"];
+
+  for(let i=0;i<18;i++){
+
+    const item=document.createElement("div");
+
+    item.className="confetti";
+
+    item.textContent=
+      symbols[randomInt(0,symbols.length-1)];
+
+    item.style.left=randomInt(0,100)+"%";
+
+    item.style.animationDelay=
+      Math.random()*.5+"s";
+
+    document.body.appendChild(item);
+
+    setTimeout(()=>{
+      item.remove();
+    },2500);
+
+  }
+
+}
+
+/* =====================================================
+   KEYBOARD
+===================================================== */
+
+document.addEventListener("keydown",e=>{
+
+  if(!document.getElementById("game").classList.contains("active")){
+    return;
+  }
+
+  if(e.key>="1" && e.key<="4"){
+
+    const index=parseInt(e.key)-1;
+
+    const buttons=document.querySelectorAll(".option");
+
+    if(buttons[index]){
+      buttons[index].click();
+    }
+
+  }
+
+  if(e.key==="Enter" && answered){
+    nextQuestion();
+  }
+
+});
+
+/* =====================================================
+   MOBILE AUDIO
+===================================================== */
+
+document.addEventListener("touchstart",()=>{
+  initAudio();
+},{once:true});
+
+document.addEventListener("click",()=>{
+  initAudio();
+},{once:true});
+
+/* =====================================================
+   SERVICE WORKER
+===================================================== */
+
+if("serviceWorker" in navigator){
+
+  window.addEventListener("load",()=>{
+
+    navigator.serviceWorker
+      .register("pwabuilder-sw.js")
+      .catch(()=>{});
+
+  });
+
+}
+
+/* =====================================================
+   START
+===================================================== */
+
+updateUI();
+checkAchievements();
 
 </script>
 
 </body>
-  </html>
+                                                                      </html>
